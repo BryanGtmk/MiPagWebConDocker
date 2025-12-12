@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #252525;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+header {
+  border-bottom: 3px solid #4a9eff;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #4a9eff;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #6eb5ff;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.3rem;
+  color: #8dc5ff;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+  text-align: justify;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #b0b0b0;
+  font-style: italic;
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.game-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.game-list li {
+  background-color: #2d2d2d;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+  border-left: 4px solid #4a9eff;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.game-list li:hover {
+  background-color: #353535;
+}
+
+.game-list strong {
+  color: #4a9eff;
+  font-size: 1.1rem;
+}
+
+footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #3a3a3a;
+  text-align: center;
+  color: #888;
+  font-size: 0.95rem;
+}
+
+footer a {
+  color: #4a9eff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #6eb5ff;
+}
+
+.highlight {
+  background-color: #2a4a6a;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  color: #a8d5ff;
+}
