@@ -1,22 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi Web con Docker</title>
-    <style>
-      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; margin: 0; padding: 2rem; background: #f7f7f8; color: #111; }
-      .container { max-width: 720px; margin: 0 auto; }
-      h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-      p { font-size: 1.125rem; line-height: 1.6; }
-      footer { margin-top: 2rem; color: #666; font-size: 0.9rem; }
-    </style>
-  </head>
-  <body>
-    <main class="container">
-      <h1>Mi Web con Docker</h1>
-      <p>Página desplegada con Docker y GitHub Actions</p>
-      <footer>Servida por NGINX (nginx:alpine)</footer>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Información académica sobre videojuegos y su evolución">
+  <title>InfoGames - Información sobre Videojuegos</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>InfoGames</h1>
+      <p class="subtitle">Portal informativo sobre videojuegos y su impacto cultural</p>
+    </header>
+
+    <main>
+      <section class="section">
+        <h2>Introducción</h2>
+        <p>
+          Los videojuegos han evolucionado desde simples experimentos de laboratorio hasta convertirse en 
+          una de las industrias de entretenimiento más influyentes del mundo. Esta plataforma está dedicada 
+          a explorar su <span class="highlight">historia, desarrollo y tecnologías</span> que los impulsan.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Historia de los Videojuegos</h2>
+        <p>
+          Desde el <strong>Tennis for Two</strong> (1958) y <strong>Spacewar!</strong> (1962), 
+          los videojuegos han recorrido un largo camino. La era dorada de las arcadas en los años 80 
+          marcó el inicio de la popularización masiva de los videojuegos.
+        </p>
+        
+        <h3>Generaciones Destacadas</h3>
+        <ul class="game-list">
+          <li><strong>1ª-2ª Generación (1972-1983):</strong> Atari 2600, Magnavox Odyssey</li>
+          <li><strong>3ª Generación (1983-1992):</strong> NES, Sega Master System</li>
+          <li><strong>4ª-5ª Generación (1987-2002):</strong> SNES, PlayStation, Nintendo 64</li>
+          <li><strong>6ª-7ª Generación (1998-2017):</strong> PS2, Xbox 360, Wii, PS3</li>
+          <li><strong>8ª-9ª Generación (2012-presente):</strong> PS4, Xbox One, Nintendo Switch, PS5, Xbox Series X</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Géneros Populares</h2>
+        <p>
+          Los videojuegos abarcan múltiples géneros que satisfacen diferentes tipos de jugadores: 
+          acción, aventura, rol (RPG), estrategia, deportes, simulación, terror, y muchos más.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Tecnología y Desarrollo</h2>
+        <p>
+          El desarrollo moderno de videojuegos utiliza <span class="highlight">motores avanzados</span> 
+          como Unity, Unreal Engine y Godot. Estos permiten crear experiencias inmersivas con 
+          gráficos realistas, física avanzada e inteligencia artificial sofisticada.
+        </p>
+      </section>
     </main>
-  </body>
-  </html>
+
+    <footer>
+      <p>InfoGames &copy; 2025 | Desplegado con Docker y NGINX</p>
+      <p>Proyecto académico - <a href="https://github.com/BryanGtmk/MiPagWebConDocker" target="_blank">GitHub</a></p>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
