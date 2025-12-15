@@ -466,8 +466,8 @@ p {
 
 /* Botón Volver Arriba */
 .to-top {
-  display: inline-block;
-  margin-top: 2rem;
+  display: block;
+  margin: 2rem auto 0 auto;
   padding: 0.8rem 1.5rem;
   background-color: #4a9eff;
   color: #fff;
