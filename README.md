@@ -10,12 +10,9 @@ MiPagWebConDocker es una página web estática informativa sobre videojuegos (In
 - Mantener una estructura de proyecto ordenada y fácil de entender.
 
 ## Tecnologías utilizadas
-- HTML
-- CSS
-- JavaScript
-- Docker
-- Nginx
-- GitHub Actions
+- HTML, CSS, JavaScript (carrusel 3D por generación con controles overlay)
+- Docker + Nginx (sitio estático servido desde `/usr/share/nginx/html`)
+- GitHub Actions (build de la imagen en CI)
 
 ## Estructura del proyecto
 ```
@@ -27,27 +24,27 @@ MiPagWebConDocker/
 │   └── styles.css
 ├── js/
 │   └── main.js
-└── assets/
-		└── img/
+└── Imagenes/
+    └── *.jpg (consolas e ilustraciones)
 ```
 
 ## Dockerización del proyecto
 - **Dockerfile**: usa la imagen base `nginx:alpine` y copia todo el contenido del proyecto en `/usr/share/nginx/html`, que es el directorio público de Nginx.
 
 ### Construir la imagen Docker
-```bash
+```powershell
 docker build -t mipagweb .
 ```
 
 ### Ejecutar el contenedor
-```bash
+```powershell
 docker run -d -p 8080:80 --name mipagweb mipagweb
 ```
 
-- La página quedará disponible en: http://localhost:8080
-- Para detener y eliminar el contenedor (si ya existe):
-```bash
-docker stop mipagweb && docker rm mipagweb
+- La página queda disponible en: http://localhost:8080
+- Para detener y eliminar el contenedor existente:
+```powershell
+docker stop mipagweb; docker rm mipagweb
 ```
 
 ## Integración Continua con GitHub Actions
