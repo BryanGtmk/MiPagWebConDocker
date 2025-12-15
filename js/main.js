@@ -1,100 +1,84 @@
-// InfoGames - Script principal
-console.log('🎮 InfoGames cargado correctamente');
-console.log('Página informativa sobre videojuegos desplegada con Docker');
+// Carrusel 3D basado en índice por generación (JS puro)
+console.log('🎮 InfoGames cargado (Carrusel 3D)');
 
-// Funcionalidad del Carrusel de Consolas
-// Scroll helpers: move exactly one card per click
 function getTrackFromButton(button) {
-  const carousel = button.closest('.carousel');
-  return carousel ? carousel.querySelector('.carousel-track') : null;
-}
-
-function getScrollStep(track) {
-  const firstItem = track ? track.querySelector('.carousel-item') : null;
-  if (!firstItem) return 200; // fallback
-  const itemWidth = firstItem.getBoundingClientRect().width;
-  const style = window.getComputedStyle(track);
-  const gapRaw = parseFloat(style.gap);
-  const gap = isNaN(gapRaw) ? 0 : gapRaw;
-  return itemWidth + gap;
-}
-
-function nextConsole(button) {
-  const track = getTrackFromButton(button);
-  if (!track) return;
-  const step = getScrollStep(track);
-  track.scrollBy({ left: step, behavior: 'smooth' });
-  // Update buttons after motion
-  setTimeout(() => updateScrollButtons(track), 120);
-}
-
-function prevConsole(button) {
-  const track = getTrackFromButton(button);
-  if (!track) return;
-  const step = getScrollStep(track);
-  track.scrollBy({ left: -step, behavior: 'smooth' });
-  // Update buttons after motion
-  setTimeout(() => updateScrollButtons(track), 120);
-}
-
-// Agregar efectos adicionales de interactividad
-document.addEventListener('DOMContentLoaded', function() {
-  const carouselItems = document.querySelectorAll('.carousel-item');
-  
-  carouselItems.forEach(item => {
-    item.addEventListener('click', function() {
-      const consoleName = this.querySelector('p').textContent;
-      const year = this.querySelector('.year').textContent;
-      console.log(`🎮 Consola seleccionada: ${consoleName} (${year})`);
-    });
-  });
-
-  // Monitorear scroll del carrusel para mostrar/ocultar botones si es necesario
-  const tracks = document.querySelectorAll('.carousel-track');
-  tracks.forEach(track => {
-    updateScrollButtons(track);
-    track.addEventListener('scroll', function() {
-      updateScrollButtons(this);
-    });
-  });
-
-  // On resize, recompute and update buttons
-  window.addEventListener('resize', () => {
-    document.querySelectorAll('.carousel-track').forEach(updateScrollButtons);
-  });
-
-  // Keyboard support: left/right arrows within carousel
-  document.querySelectorAll('.carousel').forEach(carousel => {
-    carousel.tabIndex = 0;
-    carousel.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') {
-        const btn = carousel.querySelector('.carousel-btn.next');
-        if (btn) nextConsole(btn);
-      } else if (e.key === 'ArrowLeft') {
-        const btn = carousel.querySelector('.carousel-btn.prev');
-        if (btn) prevConsole(btn);
-      }
-    });
-  });
-});
-
-function updateScrollButtons(track) {
-  const carousel = track.closest('.carousel');
-  const prevBtn = carousel.querySelector('.carousel-btn.prev');
-  const nextBtn = carousel.querySelector('.carousel-btn.next');
-
-  const epsilon = 5; // tolerance for fractional pixels
-  const isAtStart = track.scrollLeft <= epsilon;
-  const isAtEnd = (track.scrollLeft + track.clientWidth) >= (track.scrollWidth - epsilon);
-
-  // Hide/disable buttons if no overflow
-  const hasOverflow = track.scrollWidth > track.clientWidth + 1;
-  if (prevBtn) {
-    prevBtn.disabled = isAtStart || !hasOverflow;
-    prevBtn.style.visibility = hasOverflow ? 'visible' : 'hidden';
+    const header = button.closest('.carousel-header');
+    const carousel = header?.closest('.carousel');
+    return carousel?.querySelector('.carousel-track');
   }
-  if (nextBtn) {
-    nextBtn.disabled = isAtEnd || !hasOverflow;
-    nextBtn.style.visibility = hasOverflow ? 'visible' : 'hidden';
+
+  function getItems(track) { return Array.from(track.querySelectorAll('.carousel-item')); }
+  function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+
+  function applyStates(carousel) {
+    const track = carousel.querySelector('.carousel-track');
+    if (!track) return;
+    const items = getItems(track);
+    const n = items.length;
+    let idx = Number(carousel.dataset.index || 0);
+    if (!Number.isFinite(idx)) idx = 0;
+    idx = clamp(idx, 0, Math.max(0, n - 1));
+    carousel.dataset.index = String(idx);
+
+    for (const it of items) it.classList.remove('active','prev','next','hidden');
+    const active = items[idx];
+    const prev = items[idx - 1];
+    const next = items[idx + 1];
+    if (active) active.classList.add('active');
+    if (prev) prev.classList.add('prev');
+    if (next) next.classList.add('next');
+    items.forEach((it, i) => { if (i !== idx && i !== idx-1 && i !== idx+1) it.classList.add('hidden'); });
+
+    const header = carousel.querySelector('.carousel-header');
+    const prevBtn = header?.querySelector('.prev');
+    const nextBtn = header?.querySelector('.next');
+    if (prevBtn) prevBtn.disabled = (idx <= 0);
+    if (nextBtn) nextBtn.disabled = (idx >= n - 1);
   }
-}
+
+  function nextConsole(button) {
+    const track = getTrackFromButton(button);
+    if (!track) return;
+    const carousel = track.closest('.carousel');
+    const items = getItems(track);
+    let idx = Number(carousel.dataset.index || 0);
+    idx = clamp(idx + 1, 0, items.length - 1);
+    carousel.dataset.index = String(idx);
+    applyStates(carousel);
+  }
+
+  function prevConsole(button) {
+    const track = getTrackFromButton(button);
+    if (!track) return;
+    const carousel = track.closest('.carousel');
+    const items = getItems(track);
+    let idx = Number(carousel.dataset.index || 0);
+    idx = clamp(idx - 1, 0, items.length - 1);
+    carousel.dataset.index = String(idx);
+    applyStates(carousel);
+  }
+
+  function initCarousel3D() {
+    const carousels = Array.from(document.querySelectorAll('.carousel'));
+    carousels.forEach(c => {
+      if (!c.dataset.index) c.dataset.index = '0';
+      applyStates(c);
+      c.tabIndex = 0;
+      c.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+          const btn = c.querySelector('.carousel-header .next');
+          nextConsole(btn);
+        } else if (e.key === 'ArrowLeft') {
+          const btn = c.querySelector('.carousel-header .prev');
+          prevConsole(btn);
+        }
+      });
+      const track = c.querySelector('.carousel-track');
+      getItems(track).forEach((item, i) => {
+        item.addEventListener('click', () => { c.dataset.index = String(i); applyStates(c); });
+      });
+      window.addEventListener('resize', () => applyStates(c));
+    });
+  }
+
+document.addEventListener('DOMContentLoaded', initCarousel3D);
