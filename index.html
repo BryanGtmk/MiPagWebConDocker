@@ -3,20 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Información académica sobre videojuegos y su evolución">
+  <meta name="description" content="Información académica sobre videojuegos y su evolución, historia, géneros, tecnología e impacto cultural">
   <title>InfoGames - Información sobre Videojuegos</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body id="top">
   <div class="container">
     <header>
-      <h1>InfoGames</h1>
+      <h1>🎮 InfoGames</h1>
       <p class="subtitle">Portal informativo sobre videojuegos y su impacto cultural</p>
     </header>
 
+    <nav class="nav">
+      <a href="#intro">📌 Introducción</a>
+      <a href="#historia">📜 Historia</a>
+      <a href="#generos">🕹️ Géneros</a>
+      <a href="#impacto">⭐ Impacto Cultural</a>
+      <a href="#tecnologia">⚙️ Tecnología</a>
+      <a href="#fuentes">📚 Fuentes</a>
+    </nav>
+
     <main>
-      <section class="section">
+      <section class="section" id="intro">
         <h2>Introducción</h2>
+        <img src="https://via.placeholder.com/800x400?text=Evolucion+Videojuegos" alt="Consolas clásicas de videojuegos a través de la historia" loading="lazy" class="section-img">
         <p>
           Los videojuegos han evolucionado desde simples experimentos de laboratorio hasta convertirse en 
           una de las industrias de entretenimiento más influyentes del mundo. Esta plataforma está dedicada 
@@ -24,8 +34,11 @@
         </p>
       </section>
 
-      <section class="section">
-        <h2>Historia de los Videojuegos</h2>
+      <hr class="divider">
+
+      <section class="section" id="historia">
+        <h2>📜 Historia de los Videojuegos</h2>
+        <img src="https://via.placeholder.com/800x400?text=Historia+Videojuegos" alt="Arcade clásico de los años 80" loading="lazy" class="section-img">
         <p>
           Desde el <strong>Tennis for Two</strong> (1958) y <strong>Spacewar!</strong> (1962), 
           los videojuegos han recorrido un largo camino. La era dorada de las arcadas en los años 80 
@@ -33,37 +46,318 @@
         </p>
         
         <h3>Generaciones Destacadas</h3>
-        <ul class="game-list">
-          <li><strong>1ª-2ª Generación (1972-1983):</strong> Atari 2600, Magnavox Odyssey</li>
-          <li><strong>3ª Generación (1983-1992):</strong> NES, Sega Master System</li>
-          <li><strong>4ª-5ª Generación (1987-2002):</strong> SNES, PlayStation, Nintendo 64</li>
-          <li><strong>6ª-7ª Generación (1998-2017):</strong> PS2, Xbox 360, Wii, PS3</li>
-          <li><strong>8ª-9ª Generación (2012-presente):</strong> PS4, Xbox One, Nintendo Switch, PS5, Xbox Series X</li>
-        </ul>
+        <table class="tabla">
+          <thead>
+            <tr>
+              <th>Generación</th>
+              <th>Años</th>
+              <th>Ejemplos de Consolas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1ª-2ª Generación</td>
+              <td>1972-1983</td>
+              <td>Atari 2600, Magnavox Odyssey</td>
+            </tr>
+            <tr>
+              <td>3ª Generación</td>
+              <td>1983-1992</td>
+              <td>NES, Sega Master System</td>
+            </tr>
+            <tr>
+              <td>4ª-5ª Generación</td>
+              <td>1987-2002</td>
+              <td>SNES, PlayStation, Nintendo 64</td>
+            </tr>
+            <tr>
+              <td>6ª-7ª Generación</td>
+              <td>1998-2017</td>
+              <td>PS2, Xbox 360, Wii, PS3</td>
+            </tr>
+            <tr>
+              <td>8ª-9ª Generación</td>
+              <td>2012-presente</td>
+              <td>PS4, Xbox One, Switch, PS5, Xbox Series X</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Carrusel de Consolas por Generación</h3>
+        <div class="carousel-container">
+          <!-- Generación 1-2 -->
+          <div class="carousel" data-generation="1">
+            <div class="carousel-header">
+              <h4><span class="gen-badge gen-12" aria-hidden="true"></span> 1ª-2ª Generación (1972-1983)</h4>
+              <p class="carousel-desc">Inicio de las consolas domésticas.</p>
+              <div class="carousel-controls">
+                <button class="carousel-btn prev" onclick="prevConsole(this)">⬅️</button>
+                <button class="carousel-btn next" onclick="nextConsole(this)">➡️</button>
+              </div>
+            </div>
+            <div class="carousel-track">
+              <div class="carousel-item">
+                <img src="assets/img/atari_2600.jpg" alt="Atari 2600">
+                <p>Atari 2600</p>
+                <span class="year">1977</span>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/magnavox_odyssey.jpg" alt="Magnavox Odyssey">
+                <p>Magnavox Odyssey</p>
+                <span class="year">1972</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Generación 3 -->
+          <div class="carousel" data-generation="3">
+            <div class="carousel-header">
+              <h4><span class="gen-badge gen-3" aria-hidden="true"></span> 3ª Generación (1983-1992)</h4>
+              <p class="carousel-desc">Era de 8-bit y recuperación de la industria.</p>
+              <div class="carousel-controls">
+                <button class="carousel-btn prev" onclick="prevConsole(this)">⬅️</button>
+                <button class="carousel-btn next" onclick="nextConsole(this)">➡️</button>
+              </div>
+            </div>
+            <div class="carousel-track">
+              <div class="carousel-item">
+                <img src="assets/img/nes_console.jpg" alt="Nintendo Entertainment System">
+                <p>NES</p>
+                <span class="year">1983</span>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/sega_master_system.jpg" alt="Sega Master System">
+                <p>Sega Master System</p>
+                <span class="year">1985</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Generación 4-5 -->
+          <div class="carousel" data-generation="4">
+            <div class="carousel-header">
+              <h4><span class="gen-badge gen-45" aria-hidden="true"></span> 4ª-5ª Generación (1987-2002)</h4>
+              <p class="carousel-desc">Del 16-bit al salto a 3D.</p>
+              <div class="carousel-controls">
+                <button class="carousel-btn prev" onclick="prevConsole(this)">⬅️</button>
+                <button class="carousel-btn next" onclick="nextConsole(this)">➡️</button>
+              </div>
+            </div>
+            <div class="carousel-track">
+              <div class="carousel-item">
+                <img src="assets/img/snes_console.jpg" alt="Super Nintendo">
+                <p>SNES</p>
+                <span class="year">1990</span>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/playstation_1.jpg" alt="PlayStation 1">
+                <p>PlayStation</p>
+                <span class="year">1994</span>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/nintendo_64.jpg" alt="Nintendo 64">
+                <p>Nintendo 64</p>
+                <span class="year">1996</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Generación 6-7 -->
+          <div class="carousel" data-generation="6">
+            <div class="carousel-header">
+              <h4><span class="gen-badge gen-67" aria-hidden="true"></span> 6ª-7ª Generación (1998-2017)</h4>
+              <p class="carousel-desc">Online, multimedia y salto a HD.</p>
+              <div class="carousel-controls">
+                <button class="carousel-btn prev" onclick="prevConsole(this)">⬅️</button>
+                <button class="carousel-btn next" onclick="nextConsole(this)">➡️</button>
+              </div>
+            </div>
+            <div class="carousel-track">
+              <div class="carousel-item">
+                <img src="assets/img/playstation_2.jpg" alt="PlayStation 2">
+                <p>PlayStation 2</p>
+                <span class="year">2000</span>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/xbox_360.jpg" alt="Xbox 360">
+                <p>Xbox 360</p>
+                <span class="year">2005</span>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/playstation_3.jpg" alt="PlayStation 3">
+                <p>PlayStation 3</p>
+                <span class="year">2006</span>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/wii_console.jpg" alt="Nintendo Wii">
+                <p>Nintendo Wii</p>
+                <span class="year">2006</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Generación 8-9 -->
+          <div class="carousel" data-generation="8">
+            <div class="carousel-header">
+              <h4><span class="gen-badge gen-89" aria-hidden="true"></span> 8ª-9ª Generación (2012-presente)</h4>
+              <p class="carousel-desc">4K, SSD, ray tracing; híbridas y cloud.</p>
+              <div class="carousel-controls">
+                <button class="carousel-btn prev" onclick="prevConsole(this)">⬅️</button>
+                <button class="carousel-btn next" onclick="nextConsole(this)">➡️</button>
+              </div>
+            </div>
+            <div class="carousel-track">
+              <div class="carousel-item">
+                <img src="assets/img/playstation_4.jpg" alt="PlayStation 4">
+                <p>PlayStation 4</p>
+                <span class="year">2013</span>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/xbox_one.jpg" alt="Xbox One">
+                <p>Xbox One</p>
+                <span class="year">2013</span>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/nintendo_switch.jpg" alt="Nintendo Switch">
+                <p>Nintendo Switch</p>
+                <span class="year">2017</span>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/playstation_5.jpg" alt="PlayStation 5">
+                <p>PlayStation 5</p>
+                <span class="year">2020</span>
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/xbox_series_x.jpg" alt="Xbox Series X">
+                <p>Xbox Series X</p>
+                <span class="year">2020</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section class="section">
-        <h2>Géneros Populares</h2>
+      <hr class="divider">
+
+      <section class="section" id="generos">
+        <h2>🕹️ Géneros Populares</h2>
+        <img src="https://via.placeholder.com/800x400?text=Generos+Videojuegos" alt="Diferentes géneros de videojuegos" loading="lazy" class="section-img">
         <p>
-          Los videojuegos abarcan múltiples géneros que satisfacen diferentes tipos de jugadores: 
-          acción, aventura, rol (RPG), estrategia, deportes, simulación, terror, y muchos más.
+          Los videojuegos abarcan múltiples géneros que satisfacen diferentes tipos de jugadores:
+        </p>
+        <div class="genres-grid">
+          <div class="genre-card">
+            <strong>🎬 Acción</strong>
+            <p>Juegos de reflejos rápidos y combate directo</p>
+          </div>
+          <div class="genre-card">
+            <strong>🗺️ Aventura</strong>
+            <p>Exploración de mundos y resolución de misterios</p>
+          </div>
+          <div class="genre-card">
+            <strong>⚔️ RPG</strong>
+            <p>Desarrollo de personajes y narrativas épicas</p>
+          </div>
+          <div class="genre-card">
+            <strong>♟️ Estrategia</strong>
+            <p>Toma de decisiones tácticas y planificación</p>
+          </div>
+          <div class="genre-card">
+            <strong>⚽ Deportes</strong>
+            <p>Simulación de actividades deportivas</p>
+          </div>
+          <div class="genre-card">
+            <strong>😱 Terror</strong>
+            <p>Experiencias de miedo y suspense</p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <section class="section" id="impacto">
+        <h2>⭐ Impacto Cultural y Social</h2>
+        <img src="https://via.placeholder.com/800x400?text=Impacto+Cultural" alt="Comunidad gamer y streaming" loading="lazy" class="section-img">
+        <p>
+          Los videojuegos han trascendido el entretenimiento para convertirse en un fenómeno cultural de alcance global,
+          influenciando múltiples aspectos de la sociedad moderna.
+        </p>
+        
+        <h3>eSports - La Competencia Profesional</h3>
+        <p>
+          El esports ha revolucionado los videojuegos como disciplina competitiva. Torneos como The International (Dota 2), 
+          Worlds (League of Legends) y Major Championships (Counter-Strike) mueven millones de dólares en premios y atraen 
+          a millones de espectadores en todo el mundo.
+        </p>
+
+        <h3>🎓 Educación y Aprendizaje</h3>
+        <p>
+          Los videojuegos se utilizan en contextos educativos para enseñanza de matemáticas, programación, historia y 
+          habilidades blandas. Plataformas como Minecraft Education Edition demuestran el potencial pedagógico de los juegos.
+        </p>
+
+        <h3>👥 Socialización y Comunidades</h3>
+        <p>
+          El gaming ha creado comunidades globales donde millones de personas se conectan, colaboran y comparten experiencias. 
+          Plataformas de streaming como Twitch y YouTube Gaming han convertido a los jugadores en creadores de contenido.
+        </p>
+
+        <h3>💰 Impacto Económico e Industrial</h3>
+        <p>
+          La industria de los videojuegos genera más ingresos que Hollywood y la industria musical combinadas. En 2023, 
+          se estimaba en más de 184 mil millones de dólares globalmente, generando millones de empleos directos e indirectos.
         </p>
       </section>
 
-      <section class="section">
-        <h2>Tecnología y Desarrollo</h2>
+      <hr class="divider">
+
+      <section class="section" id="tecnologia">
+        <h2>⚙️ Tecnología y Desarrollo</h2>
+        <img src="https://via.placeholder.com/800x400?text=Motores+Graficos" alt="Motores gráficos modernos para videojuegos" loading="lazy" class="section-img">
         <p>
           El desarrollo moderno de videojuegos utiliza <span class="highlight">motores avanzados</span> 
           como Unity, Unreal Engine y Godot. Estos permiten crear experiencias inmersivas con 
           gráficos realistas, física avanzada e inteligencia artificial sofisticada.
         </p>
-        <p>holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+
+        <h3>Motores de Juego Principales</h3>
+        <ul class="game-list">
+          <li><strong>Unreal Engine:</strong> Potencia gráfica líder, utilizado en AAA titles y VR</li>
+          <li><strong>Unity:</strong> Versátil y multiplataforma, ideal para independientes</li>
+          <li><strong>Godot:</strong> Open-source, en crecimiento y ligero</li>
+          <li><strong>Pygame/LibGDX:</strong> Para educación y proyectos pequeños</li>
+        </ul>
+
+        <h3>Tecnologías Emergentes</h3>
+        <ul class="game-list">
+          <li><strong>Ray Tracing:</strong> Iluminación realista en tiempo real</li>
+          <li><strong>DLSS / FSR:</strong> Upscaling inteligente para mejor rendimiento</li>
+          <li><strong>Inteligencia Artificial:</strong> NPCs más inteligentes y adaptativos</li>
+          <li><strong>Cloud Gaming:</strong> Juegos sin instalación vía streaming</li>
+        </ul>
       </section>
+
+      <hr class="divider">
+
+      <section class="section" id="fuentes">
+        <h2>📚 Fuentes y Referencias</h2>
+        <p>La información en este sitio está basada en fuentes académicas y especializadas:</p>
+        <ul class="references-list">
+          <li><strong>Wikipedia - History of Video Games:</strong> <a href="https://en.wikipedia.org/wiki/History_of_video_games" target="_blank" rel="noopener noreferrer">En.wikipedia.org/wiki/History_of_video_games</a></li>
+          <li><strong>Unreal Engine Documentation:</strong> <a href="https://docs.unrealengine.com/" target="_blank" rel="noopener noreferrer">docs.unrealengine.com</a></li>
+          <li><strong>Unity Learn Platform:</strong> <a href="https://learn.unity.com/" target="_blank" rel="noopener noreferrer">learn.unity.com</a></li>
+          <li><strong>Game Developers Conference (GDC):</strong> <a href="https://www.gdconf.com/" target="_blank" rel="noopener noreferrer">gdconf.com</a></li>
+          <li><strong>International Game Developers Association (IGDA):</strong> <a href="https://www.igda.org/" target="_blank" rel="noopener noreferrer">igda.org</a></li>
+          <li><strong>Statista - Gaming Industry Reports:</strong> <a href="https://www.statista.com/outlook/amo/media/games/" target="_blank" rel="noopener noreferrer">statista.com - Gaming Market</a></li>
+        </ul>
+      </section>
+
+      <a class="to-top" href="#top">⬆️ Volver arriba</a>
     </main>
 
     <footer>
       <p>InfoGames &copy; 2025 | Desplegado con Docker y NGINX</p>
-      <p>Proyecto académico - <a href="https://github.com/BryanGtmk/MiPagWebConDocker" target="_blank">GitHub</a></p>
+      <p>Proyecto académico - <a href="https://github.com/BryanGtmk/MiPagWebConDocker" target="_blank" rel="noopener noreferrer">🔗 GitHub</a></p>
     </footer>
   </div>
 
