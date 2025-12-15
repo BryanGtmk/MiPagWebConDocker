@@ -2,10 +2,9 @@
 console.log('🎮 InfoGames cargado (Carrusel 3D)');
 
 function getTrackFromButton(button) {
-    const header = button.closest('.carousel-header');
-    const carousel = header?.closest('.carousel');
-    return carousel?.querySelector('.carousel-track');
-  }
+  const carousel = button.closest('.carousel');
+  return carousel?.querySelector('.carousel-track');
+}
 
   function getItems(track) { return Array.from(track.querySelectorAll('.carousel-item')); }
   function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
